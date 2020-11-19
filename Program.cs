@@ -27,6 +27,9 @@ namespace change_calculator {
 
         private static void OutputChangeDistribution(double[] validChangeValues, int[] changeDistribution) {
             // Output the change distribution to the console
+            string changeOutputText = "The change to return is:";
+
+            Console.WriteLine(changeOutputText);
         }
 
         public static void CalculateChange(double[] validChangeValues, double inputCost, double inputPayment) {
