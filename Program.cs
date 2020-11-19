@@ -48,6 +48,7 @@ namespace change_calculator {
                 // Check the user is paying enough for the product
                 if (userPayment >= productCost) {
                     hasUserProvidedValidInputs = true;
+                    CalculateChange(validChangeTypes, productCost, userPayment);
                 }
                 else {
                     Console.WriteLine("The payment value is less than the cost, more money is required for the purchase");
