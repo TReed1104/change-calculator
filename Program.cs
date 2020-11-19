@@ -4,6 +4,12 @@ namespace change_calculator
 {
     class Program
     {
+
+        private int ConvertToPence(double input)
+        {
+            return 0;
+        }
+
         private static string RemovePoundSymbol(string inputString)
         {
             // Check if the string contains a £ - catchs inputs with pre-post £ symbols, inputs such as '3£4' will be marked invalid as theyre unclear
