@@ -3,7 +3,7 @@
 namespace change_calculator {
     class Program {
         private static string RemovePoundSymbol(string inputString) {
-            // Check if the string contains a £
+            // Check if the string contains a £ - catchs inputs with pre-post £ symbols, inputs such as '3£4' will be marked invalid as theyre unclear
             if (inputString.Contains('£')) {
                 inputString = inputString.Replace('£', ' ');    // Replace the £ with a space
                 inputString = inputString.Trim();               // Trim the pre-post spaces
