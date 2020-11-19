@@ -40,6 +40,11 @@ namespace change_calculator {
                 if (remainingChange == 0) { break; }                                    // We've run out of change to split
                 int changeValueInPence = (int)(validChangeValues[i] * 100);             // Convert the change type to its value in pence
                 if (changeValueInPence > (int)(changeToReturn * 100)) { continue; }     // Check we aren't using a change type higher than the change we are distributing
+
+                // Calculate how the change is to be distributed
+                int currentChangeToSplit = remainingChange - (remainingChange % changeValueInPence);    // Calculate the value to split with the current change type
+                changeDistribution[i] = (currentChangeToSplit / changeValueInPence);                    // Record how many of the current change type we should give
+                remainingChange -= currentChangeToSplit;                                                // Amend the running total after we've distributed some change
             }
         }
 
