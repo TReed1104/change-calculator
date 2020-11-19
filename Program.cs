@@ -28,6 +28,10 @@ namespace change_calculator {
         public static void CalculateChange(double[] validChangeValues, double inputCost, double inputPayment) {
             // Calculate the distribution of valid change types
             if (inputCost == inputPayment) { Console.WriteLine("You paid with exact change!"); return; }    // Check if the user enterred exact change
+
+            double changeToReturn = inputPayment - inputCost;       // Calculate the change delta
+            int remainingChange = (int)(changeToReturn * 100);      // Our running total of change in pence -> gets round decimal issues e.g. when we sometimes get 0.9999999999998 instead of 1 with doubles
+            Console.WriteLine("Item cost {0}, User paid {1} and the change to return is {2}", inputCost, inputPayment, changeToReturn);
         }
 
         static void Main(string[] args) {
