@@ -3,7 +3,11 @@
 namespace change_calculator {
     class Program {
         private static string RemovePoundSymbol(string inputString) {
-            return "";
+            // Check if the string contains a £
+            if (inputString.Contains('£')) {
+                inputString = inputString.Replace('£', ' ');    // Replace the £ with a space
+            }
+            return inputString;
         }
 
 
