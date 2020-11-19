@@ -56,8 +56,7 @@ namespace change_calculator
                 }
                 else
                 {
-                    int readablePence = (int)(validChangeValues[i] * 100);
-                    changeOutputText += string.Format("\n{0}p x {1}", readablePence, changeDistribution[i]);
+                    changeOutputText += string.Format("\n{0}p x {1}", ConvertToPence(validChangeValues[i]), changeDistribution[i]);
                 }
             }
             Console.WriteLine(changeOutputText);
@@ -75,7 +74,7 @@ namespace change_calculator
             }
 
             double changeToReturn = inputPayment - inputCost;       // Calculate the change delta
-            int remainingChange = (int)(changeToReturn * 100);      // Our running total of change in pence -> gets round decimal issues e.g. when we sometimes get 0.9999999999998 instead of 1 with doubles
+            int remainingChange = ConvertToPence(changeToReturn);      // Our running total of change in pence -> gets round decimal issues e.g. when we sometimes get 0.9999999999998 instead of 1 with doubles
             Console.WriteLine("\nThe product cost is £{0} and the customer paid £{1}. Therefore the change to be returned is {2}", inputCost, inputPayment, changeToReturn);
 
             int[] changeDistribution = new int[validChangeValues.Length];     // Maps directly to the input change value array - e.g. changeValue[0] which is £50 notes directly matches changeDistribution[0] for its count
@@ -88,10 +87,10 @@ namespace change_calculator
                 {
                     break;
                 }
-                int changeValueInPence = (int)(validChangeValues[i] * 100);             // Convert the change type to its value in pence
+                int changeValueInPence = ConvertToPence(validChangeValues[i]);             // Convert the change type to its value in pence
 
                 // Check we aren't using a change type higher than the change we are distributing
-                if (changeValueInPence > (int)(changeToReturn * 100))
+                if (changeValueInPence > ConvertToPence(changeToReturn))
                 {
                     continue;
                 }
