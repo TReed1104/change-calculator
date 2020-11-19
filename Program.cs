@@ -7,7 +7,7 @@ namespace change_calculator
 
         private int ConvertToPence(double input)
         {
-            return 0;
+            return (int)(input * 100);
         }
 
         private static string RemovePoundSymbol(string inputString)
