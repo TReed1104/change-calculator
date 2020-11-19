@@ -30,7 +30,15 @@ namespace change_calculator {
             while (!hasUserProvidedValidInputs) {
                 // Get user inputs
                 double productCost = GetUserInput("Enter the product cost (E.g. £4.50):");
+                if (productCost <= 0) {
+                    Console.WriteLine("A purchase must cost more than £0");
+                    continue;
+                }
                 double userPayment = GetUserInput("Enter the value you are paying with (£20):");
+                if (userPayment <= 0) {
+                    Console.WriteLine("The payment value must be more than £0");
+                    continue;
+                }
                 // Check the user is paying enough for the product
                 if (userPayment >= productCost) {
                     hasUserProvidedValidInputs = true;
