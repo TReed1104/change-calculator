@@ -25,6 +25,10 @@ namespace change_calculator {
             return inputConverted;
         }
 
+        private static void OutputChangeDistribution(double[] validChangeValues, int[] changeDistribution) {
+            // Output the change distribution to the console
+        }
+
         public static void CalculateChange(double[] validChangeValues, double inputCost, double inputPayment) {
             // Calculate the distribution of valid change types
             if (inputCost == inputPayment) { Console.WriteLine("You paid with exact change!"); return; }    // Check if the user enterred exact change
