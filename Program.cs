@@ -26,9 +26,19 @@ namespace change_calculator {
         }
 
         static void Main(string[] args) {
-            // Get user inputs
-            double productCost = GetUserInput("Enter the product cost (E.g. £4.50):");
-            double userPayment = GetUserInput("Enter the value you are paying with (£20):");
+            bool hasUserProvidedValidInputs = false;
+            while (!hasUserProvidedValidInputs) {
+                // Get user inputs
+                double productCost = GetUserInput("Enter the product cost (E.g. £4.50):");
+                double userPayment = GetUserInput("Enter the value you are paying with (£20):");
+                // Check the user is paying enough for the product
+                if (userPayment >= productCost) {
+                    hasUserProvidedValidInputs = true;
+                }
+                else {
+                    Console.WriteLine("The payment value is less than the cost, more money is required for the purchase");
+                }
+            }
         }
     }
 }
