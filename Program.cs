@@ -42,6 +42,17 @@ namespace change_calculator
                 {
                     continue;
                 }
+
+                // If the change value is above a pound use a £, if not use a pence symbol - E.g. £10 or 50p
+                if (validChangeValues[i] >= 1)
+                {
+                    changeOutputText += string.Format("\n£{0} x {1}", validChangeValues[i], changeDistribution[i]);
+                }
+                else
+                {
+                    int readablePence = (int)(validChangeValues[i] * 100);
+                    changeOutputText += string.Format("\n{0}p x {1}", readablePence, changeDistribution[i]);
+                }
             }
             Console.WriteLine(changeOutputText);
         }
