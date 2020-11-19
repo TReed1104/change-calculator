@@ -27,6 +27,8 @@ namespace change_calculator {
 
         static void Main(string[] args) {
             bool hasUserProvidedValidInputs = false;
+            double[] validChangeTypes = new double[] { 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01 };
+
             while (!hasUserProvidedValidInputs) {
                 // Get user inputs
                 double productCost = GetUserInput("Enter the product cost (E.g. £4.50):");
