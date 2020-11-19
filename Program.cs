@@ -12,6 +12,7 @@ namespace change_calculator {
         }
 
         public static double GetUserInput(string messageToPrint) {
+            // Get the user input and sanitise that its a valid numerical value we can use
             Console.WriteLine(messageToPrint);   // Print the message to console to instruct the user
             string inputString = RemovePoundSymbol(Console.ReadLine()); // Get input and remove £ symbols
             double inputConverted = 0;
