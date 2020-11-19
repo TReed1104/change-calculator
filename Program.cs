@@ -2,6 +2,11 @@
 
 namespace change_calculator {
     class Program {
+        private static string RemovePoundSymbol(string inputString) {
+            return "";
+        }
+
+
         static void Main(string[] args) {
             // Get input for product price
             Console.WriteLine("Enter the product cost");
