@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace change_calculator {
     class Program {
@@ -24,16 +24,10 @@ namespace change_calculator {
             return inputConverted;
         }
 
-            // Get input for product price
-            Console.WriteLine("Enter the value you are paying");
-            string paymentValue = RemovePoundSymbol(Console.ReadLine());
-            double paymentConverted = 0;
-            // Check the input can be converted to a double
-            while (!double.TryParse(paymentValue, out paymentConverted)) {
-                // Invalid input, inform the user and try again
-                Console.WriteLine("Invalid value input");
-                paymentValue = RemovePoundSymbol(Console.ReadLine());
-            }
+        static void Main(string[] args) {
+            // Get user inputs
+            double productCost = GetUserInput("Enter the product cost (E.g. £4.50):");
+            double userPayment = GetUserInput("Enter the value you are paying with (£20):");
         }
     }
 }
