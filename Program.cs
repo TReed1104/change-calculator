@@ -39,6 +39,7 @@ namespace change_calculator {
             for (int i = 0; i < validChangeValues.Length; i++) {
                 if (remainingChange == 0) { break; }                                    // We've run out of change to split
                 int changeValueInPence = (int)(validChangeValues[i] * 100);             // Convert the change type to its value in pence
+                if (changeValueInPence > (int)(changeToReturn * 100)) { continue; }     // Check we aren't using a change type higher than the change we are distributing
             }
         }
 
