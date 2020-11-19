@@ -35,7 +35,14 @@ namespace change_calculator
         {
             // Output the change distribution to the console
             string changeOutputText = "The change to return is:";
-
+            for (int i = 0; i < validChangeValues.Length; i++)
+            {
+                // Check if we are returning change of this type
+                if (changeDistribution[i] == 0)
+                {
+                    continue;
+                }
+            }
             Console.WriteLine(changeOutputText);
         }
 
@@ -48,7 +55,7 @@ namespace change_calculator
             {
                 Console.WriteLine("You paid with exact change!");
                 return;
-            }    
+            }
 
             double changeToReturn = inputPayment - inputCost;       // Calculate the change delta
             int remainingChange = (int)(changeToReturn * 100);      // Our running total of change in pence -> gets round decimal issues e.g. when we sometimes get 0.9999999999998 instead of 1 with doubles
@@ -65,6 +72,7 @@ namespace change_calculator
                     break;
                 }
                 int changeValueInPence = (int)(validChangeValues[i] * 100);             // Convert the change type to its value in pence
+
                 // Check we aren't using a change type higher than the change we are distributing
                 if (changeValueInPence > (int)(changeToReturn * 100))
                 {
