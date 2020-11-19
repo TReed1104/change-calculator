@@ -3,7 +3,9 @@
 namespace change_calculator {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("Hello World!");
+            // Get input for product price
+            Console.WriteLine("Enter the product cost");
+            string productPrice = Console.ReadLine();
         }
     }
 }
