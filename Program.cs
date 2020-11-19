@@ -34,7 +34,7 @@ namespace change_calculator
         private static void OutputChangeDistribution(double[] validChangeValues, int[] changeDistribution)
         {
             // Output the change distribution to the console
-            string changeOutputText = "The change to return is:";
+            string changeOutputText = "\nThe distribution of the change is:";
             for (int i = 0; i < validChangeValues.Length; i++)
             {
                 // Check if we are returning change of this type
@@ -64,13 +64,13 @@ namespace change_calculator
             // Check if the user enterred exact change
             if (inputCost == inputPayment)
             {
-                Console.WriteLine("You paid with exact change!");
+                Console.WriteLine("\nThe customer paid with exact change.");
                 return;
             }
 
             double changeToReturn = inputPayment - inputCost;       // Calculate the change delta
             int remainingChange = (int)(changeToReturn * 100);      // Our running total of change in pence -> gets round decimal issues e.g. when we sometimes get 0.9999999999998 instead of 1 with doubles
-            Console.WriteLine("Item cost {0}, User paid {1} and the change to return is {2}", inputCost, inputPayment, changeToReturn);
+            Console.WriteLine("\nThe product cost is £{0} and the customer paid £{1}. Therefore the change to be returned is {2}", inputCost, inputPayment, changeToReturn);
 
             int[] changeDistribution = new int[validChangeValues.Length];     // Maps directly to the input change value array - e.g. changeValue[0] which is £50 notes directly matches changeDistribution[0] for its count
 
@@ -112,13 +112,13 @@ namespace change_calculator
                 double productCost = GetUserInput("Enter the product cost (E.g. £4.50):");
                 if (productCost <= 0)
                 {
-                    Console.WriteLine("A purchase must cost more than £0");
+                    Console.WriteLine("A purchase must cost more than £0...\n");
                     continue;
                 }
                 double userPayment = GetUserInput("Enter the value you are paying with (£20):");
                 if (userPayment <= 0)
                 {
-                    Console.WriteLine("The payment value must be more than £0");
+                    Console.WriteLine("The payment value must be more than £0...\n");
                     continue;
                 }
                 // Check the user is paying enough for the product
@@ -129,7 +129,7 @@ namespace change_calculator
                 }
                 else
                 {
-                    Console.WriteLine("The payment value is less than the cost, more money is required for the purchase");
+                    Console.WriteLine("The payment value entered is less than the product cost, you must enter a higher payment value.");
                 }
             }
         }
