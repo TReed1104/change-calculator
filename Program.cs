@@ -5,7 +5,7 @@ namespace change_calculator
     class Program
     {
 
-        private int ConvertToPence(double input)
+        private static int ConvertToPence(double input)
         {
             return (int)(input * 100);
         }
