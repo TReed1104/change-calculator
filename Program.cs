@@ -32,6 +32,12 @@ namespace change_calculator {
             double changeToReturn = inputPayment - inputCost;       // Calculate the change delta
             int remainingChange = (int)(changeToReturn * 100);      // Our running total of change in pence -> gets round decimal issues e.g. when we sometimes get 0.9999999999998 instead of 1 with doubles
             Console.WriteLine("Item cost {0}, User paid {1} and the change to return is {2}", inputCost, inputPayment, changeToReturn);
+
+            int[] changeDistribution = new int[validChangeValues.Length];     // Maps directly to the input change value array - e.g. changeValue[0] which is £50 notes directly matches changeDistribution[0] for its count
+
+            // For each valid change type, check how it goes into the remaining value
+            for (int i = 0; i < validChangeValues.Length; i++) {
+            }
         }
 
         static void Main(string[] args) {
