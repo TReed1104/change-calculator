@@ -37,7 +37,8 @@ namespace change_calculator {
 
             // For each valid change type, check how it goes into the remaining value
             for (int i = 0; i < validChangeValues.Length; i++) {
-                if (remainingChange == 0) { break; }                            // We've run out of change to split
+                if (remainingChange == 0) { break; }                                    // We've run out of change to split
+                int changeValueInPence = (int)(validChangeValues[i] * 100);             // Convert the change type to its value in pence
             }
         }
 
