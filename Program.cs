@@ -6,6 +6,7 @@ namespace change_calculator {
             // Check if the string contains a £
             if (inputString.Contains('£')) {
                 inputString = inputString.Replace('£', ' ');    // Replace the £ with a space
+                inputString = inputString.Trim();               // Trim the pre-post spaces
             }
             return inputString;
         }
