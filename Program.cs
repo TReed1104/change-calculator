@@ -25,6 +25,10 @@ namespace change_calculator {
             return inputConverted;
         }
 
+        public static void CalculateChange(double[] validChangeValues, double inputCost, double inputPayment) {
+            // Calculate the distribution of valid change types
+        }
+
         static void Main(string[] args) {
             bool hasUserProvidedValidInputs = false;
             double[] validChangeTypes = new double[] { 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01 };
