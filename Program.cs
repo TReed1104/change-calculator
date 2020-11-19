@@ -53,6 +53,9 @@ namespace change_calculator {
                 changeDistribution[i] = (currentChangeToSplit / changeValueInPence);                    // Record how many of the current change type we should give
                 remainingChange -= currentChangeToSplit;                                                // Amend the running total after we've distributed some change
             }
+
+            // Print the distribution to the console
+            OutputChangeDistribution(validChangeValues, changeDistribution);
         }
 
         static void Main(string[] args) {
