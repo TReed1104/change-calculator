@@ -17,6 +17,13 @@ namespace change_calculator {
             // Get input for product price
             Console.WriteLine("Enter the value you are paying");
             string paymentValue = Console.ReadLine();
+            double paymentConverted = 0;
+            // Check the input can be converted to a double
+            while (!double.TryParse(paymentValue, out paymentConverted)) {
+                // Invalid input, inform the user and try again
+                Console.WriteLine("Invalid value input");
+                paymentValue = Console.ReadLine();
+            }
         }
     }
 }
