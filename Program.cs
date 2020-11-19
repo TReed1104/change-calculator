@@ -11,6 +11,9 @@ namespace change_calculator {
             return inputString;
         }
 
+        public static double GetUserInput(string messageToPrint) {
+            return 0;
+        }
 
         static void Main(string[] args) {
             // Get input for product price
