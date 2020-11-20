@@ -89,9 +89,20 @@ namespace change_calculator.tests
         [InlineData(20, 5.5, new int[] { 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0 })]
         [InlineData(50, 10, new int[] { 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 })]
         [InlineData(20, 10, new int[] { 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 })]
+        [InlineData(5, 3.53, new int[] { 0, 0, 0, 0, 0, 1, 0, 2, 0, 1, 1, 0 })]
         public void Test_CalculateChange_Equal(double inputCost, double inputPayment, int[] expected)
         {
             Assert.Equal(expected, Program.CalculateChange(Program.validChangeTypes, inputCost, inputPayment));
+        }
+
+        [Theory]
+        [InlineData(20, 5.5, new int[] { 0, 1, 1, 0, 2, 0, 1, 0, 0, 0, 0, 1 })]
+        [InlineData(0, 10, new int[] { 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 })]
+        [InlineData(20, 0, new int[] { 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 })]
+        [InlineData(5, 3.53, new int[] { 0, 1, 0, 0, 0, 1, 0, 2, 0, 1, 1, 0 })]
+        public void Test_CalculateChange_NotEqual(double inputCost, double inputPayment, int[] expected)
+        {
+            Assert.NotEqual(expected, Program.CalculateChange(Program.validChangeTypes, inputCost, inputPayment));
         }
     }
 
