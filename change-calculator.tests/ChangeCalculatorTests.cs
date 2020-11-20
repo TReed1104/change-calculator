@@ -6,6 +6,7 @@ namespace change_calculator.tests
 {
     public class ChangeCalculatorTests
     {
+
         [Theory]
         [InlineData(1, 100)]
         [InlineData(10, 1000)]
@@ -59,6 +60,29 @@ namespace change_calculator.tests
             Assert.NotEqual(expected, Program.RemovePoundSymbol(input));
         }
 
+        [Theory]
+        [InlineData("50", 50)]
+        [InlineData("£50", 50)]
+        [InlineData("200", 200)]
+        [InlineData("5.1", 5.1)]
+        [InlineData("2.939393", 2.939393)]
+        [InlineData("5£0", -1)]
+        [InlineData("abcdef", -1)]
+        public void Test_ParseUserInput_Equal(string input, double expected)
+        {
+            Assert.Equal(expected, Program.ParseUserInput(input));
+        }
+
+        [Theory]
+        [InlineData("5£0", 50)]
+        [InlineData("£5£0", 50)]
+        [InlineData("£abc", 50)]
+        [InlineData("abcdef", double.MaxValue)]
+        [InlineData("abcdef", double.MinValue)]
+        public void Test_ParseUserInput_NotEqual(string input, double expected)
+        {
+            Assert.NotEqual(expected, Program.ParseUserInput(input));
+        }
     }
 
 }
