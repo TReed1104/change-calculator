@@ -104,6 +104,29 @@ namespace change_calculator.tests
         {
             Assert.NotEqual(expected, Program.CalculateChange(Program.validChangeTypes, inputCost, inputPayment));
         }
+
+
+        [Theory]
+        [InlineData(new int[] { 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0 }, "Your change is:\n1 x £10\n2 x £2\n1 x 50p\n")]
+        [InlineData(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, "Your change is:\n1 x £50\n")]
+        [InlineData(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }, "Your change is:\n1 x £50\n1 x 1p\n")]
+        [InlineData(new int[] { 0, 0, 0, 5, 0, 0, 0, 0, 0, 12, 0, 1 }, "Your change is:\n5 x £5\n12 x 5p\n1 x 1p\n")]
+        [InlineData(new int[] { 1 }, "Invalid Array Length")]
+        public void Test_OutputChangeDistribution_Equal(int[] input, string expected)
+        {
+            Assert.Equal(expected, Program.OutputChangeDistribution(Program.validChangeTypes, input));
+        }
+
+        [Theory]
+        [InlineData(new int[] { 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0 }, "you have some change")]
+        [InlineData(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, "Your change is:\n1 x £20\n")]
+        [InlineData(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 }, "Your change is:\n1 x 1p\n")]
+        [InlineData(new int[] { 0, 0, 0, 5, 0, 0, 0, 0, 0, 12, 0, 1 }, "Your change is:\n5 x £5\n12 x 5p\n0 x 1p\n")]
+        [InlineData(new int[] { 1 }, "Your change is:\n1 x £50")]
+        public void Test_OutputChangeDistribution_NotEqual(int[] input, string expected)
+        {
+            Assert.NotEqual(expected, Program.OutputChangeDistribution(Program.validChangeTypes, input));
+        }
     }
 
 }
