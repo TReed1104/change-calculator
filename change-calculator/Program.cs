@@ -147,6 +147,7 @@ namespace change_calculator
                     Console.WriteLine("The payment value entered is less than the product cost, you must enter a higher payment value.");
                 }
             }
+            Console.ReadLine(); // Hacky end of program break so the user can read the output
         }
     }
 }
