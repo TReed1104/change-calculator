@@ -62,7 +62,7 @@ namespace change_calculator
             return changeOutputText + "\n";
         }
 
-        public static void CalculateChange(double[] validChangeValues, double inputCost, double inputPayment)
+        public static int[] CalculateChange(double[] validChangeValues, double inputCost, double inputPayment)
         {
             // Calculate the distribution of valid change types
 
@@ -70,7 +70,7 @@ namespace change_calculator
             if (inputCost == inputPayment)
             {
                 Console.WriteLine("\nThe customer paid with exact change.");
-                return;
+                return null;
             }
 
             int changeToReturn = ConvertToPence(inputPayment) - ConvertToPence(inputCost);       // Calculate the change delta
@@ -102,7 +102,9 @@ namespace change_calculator
             }
 
             // Print the distribution to the console
-            OutputChangeDistribution(validChangeValues, changeDistribution);
+            Console.WriteLine(OutputChangeDistribution(validChangeValues, changeDistribution));
+            // Return the change distribution
+            return changeDistribution;
         }
 
         static void Main(string[] args)
