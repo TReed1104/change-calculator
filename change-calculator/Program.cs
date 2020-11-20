@@ -62,7 +62,7 @@ namespace change_calculator
             return changeOutputText + "\n";
         }
 
-        public static int[] CalculateChange(double[] validChangeValues, double inputCost, double inputPayment)
+        public static int[] CalculateChange(double[] validChangeValues, double inputPayment, double inputCost)
         {
             // Calculate the distribution of valid change types
 
@@ -134,7 +134,7 @@ namespace change_calculator
                 if (payment >= productCost)
                 {
                     hasUserProvidedValidInputs = true;
-                    CalculateChange(validChangeTypes, productCost, payment);
+                    CalculateChange(validChangeTypes, payment, productCost);
                 }
                 else
                 {
