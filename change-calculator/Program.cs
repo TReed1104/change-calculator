@@ -21,18 +21,15 @@ namespace change_calculator
             return inputString;
         }
 
-        public static double GetUserInput(string messageToPrint)
+        public static double ParseUserInput(string input)
         {
             // Get the user input and sanitise that its a valid numerical value we can use
-            Console.WriteLine(messageToPrint);   // Print the message to console to instruct the user
-            string inputString = RemovePoundSymbol(Console.ReadLine()); // Get input and remove £ symbols
+            string inputString = RemovePoundSymbol(input); // Get input and remove £ symbols
             double inputConverted = 0;
             // Check the input can be converted to a double
-            while (!double.TryParse(inputString, out inputConverted))
+            if (!double.TryParse(inputString, out inputConverted))
             {
-                // Invalid input, inform the user and try again
-                Console.WriteLine("Invalid value input, please make sure you are entering a number");
-                inputString = RemovePoundSymbol(Console.ReadLine());
+                return -1;
             }
             return inputConverted;
         }
