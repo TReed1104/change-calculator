@@ -4,8 +4,8 @@ namespace change_calculator
 {
     public class Program
     {
-
-        private static int ConvertToPence(double input)
+        // Convert our decimal £ value to an int of its pence value
+        public static int ConvertToPence(double input)
         {
             return (int)(input * 100);
         }
