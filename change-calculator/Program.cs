@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace change_calculator
 {
@@ -113,23 +113,27 @@ namespace change_calculator
             while (!hasUserProvidedValidInputs)
             {
                 // Get user inputs
-                double productCost = GetUserInput("Enter the product cost (E.g. £4.50):");
+                Console.WriteLine("Enter the value you are paying with (£20):");
+                double payment = ParseUserInput(Console.ReadLine());
+                if (payment <= 0)
+                {
+                    Console.WriteLine("An invalid payment value was entered, the payment value must be a number and more than £0...\n");
+                    continue;
+                }
+
+                Console.WriteLine("Enter the product cost (E.g. £4.50):");
+                double productCost = ParseUserInput(Console.ReadLine());
                 if (productCost <= 0)
                 {
-                    Console.WriteLine("A purchase must cost more than £0...\n");
+                    Console.WriteLine("An invalid purchase value was entered, the purchase value must be a number and more than £0...\n");
                     continue;
                 }
-                double userPayment = GetUserInput("Enter the value you are paying with (£20):");
-                if (userPayment <= 0)
-                {
-                    Console.WriteLine("The payment value must be more than £0...\n");
-                    continue;
-                }
+
                 // Check the user is paying enough for the product
-                if (userPayment >= productCost)
+                if (payment >= productCost)
                 {
                     hasUserProvidedValidInputs = true;
-                    CalculateChange(validChangeTypes, productCost, userPayment);
+                    CalculateChange(validChangeTypes, productCost, payment);
                 }
                 else
                 {
