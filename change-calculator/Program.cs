@@ -40,7 +40,7 @@ namespace change_calculator
         private static void OutputChangeDistribution(double[] validChangeValues, int[] changeDistribution)
         {
             // Output the change distribution to the console
-            string changeOutputText = "\nThe distribution of the change is:";
+            string changeOutputText = "Your change is:";
             for (int i = 0; i < validChangeValues.Length; i++)
             {
                 // Check if we are returning change of this type
@@ -52,11 +52,11 @@ namespace change_calculator
                 // If the change value is above a pound use a £, if not use a pence symbol - E.g. £10 or 50p
                 if (validChangeValues[i] >= 1)
                 {
-                    changeOutputText += string.Format("\n£{0} x {1}", validChangeValues[i], changeDistribution[i]);
+                    changeOutputText += string.Format("\n{0} x £{1}", changeDistribution[i], validChangeValues[i]);
                 }
                 else
                 {
-                    changeOutputText += string.Format("\n{0}p x {1}", ConvertToPence(validChangeValues[i]), changeDistribution[i]);
+                    changeOutputText += string.Format("\n{0} x {1}p", changeDistribution[i], ConvertToPence(validChangeValues[i]));
                 }
             }
             Console.WriteLine(changeOutputText + "\n");
@@ -75,7 +75,7 @@ namespace change_calculator
 
             int changeToReturn = ConvertToPence(inputPayment) - ConvertToPence(inputCost);       // Calculate the change delta
             int remainingChange = changeToReturn;      // Our running total of change in pence -> gets round decimal issues e.g. when we sometimes get 0.9999999999998 instead of 1 with doubles
-            Console.WriteLine("\nThe product cost is £{0} and the customer paid £{1}. Therefore the change to be returned is £{2}", inputCost, inputPayment, ((double)(remainingChange) / 100));
+            Console.WriteLine("\nGiven £{0} and a product price £{1} - the change due is £{2}", inputPayment, inputCost, ((double)(remainingChange) / 100));
 
             int[] changeDistribution = new int[validChangeValues.Length];     // Maps directly to the input change value array - e.g. changeValue[0] which is £50 notes directly matches changeDistribution[0] for its count
 
