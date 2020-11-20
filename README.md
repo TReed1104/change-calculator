@@ -3,6 +3,8 @@ A change calculator task for an interview assesment - Written in C# and uses Xun
 
 The program takes two user entries: A payment value and the cost of a product and outputs the distribution of change from largest to smallest.
 
+Time spent: 3:16 Hours - Including learning to setup and use Xunit.
+
 <br/>
 
 ## Compile and Run
@@ -16,3 +18,6 @@ This solution will open in Visual studio, where the code can be compiled and ran
 The project contains multiple Xunit tests found in "change-calculator.tests/ChangeCalculatorTests.cs", these individually test each of the methods used by the program with a variety of inputs.
 These tests can be run either from terminal via "dotnet test" from the "change-calculator.tests" folder, or via the Visual studio test runner console.
 
+
+## Compiled release version
+I've also attched a compiled version in the release section of the repository on Github.
