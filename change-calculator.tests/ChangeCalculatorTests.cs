@@ -37,12 +37,12 @@ namespace change_calculator.tests
 
         [Theory]
         [InlineData("", "")]
-        [InlineData("�", "")]
-        [InlineData("�50", "50")]
-        [InlineData("50�", "50")]
+        [InlineData("£", "")]
+        [InlineData("£50", "50")]
+        [InlineData("50£", "50")]
         [InlineData("%50", "%50")]
-        [InlineData("�����", "")]
-        [InlineData("dsa�", "dsa")]
+        [InlineData("£££££", "")]
+        [InlineData("dsa£", "dsa")]
         [InlineData("a b c", "a b c")]
         public void Test_RemovePoundSymbol_Equal(string input, string expected)
         {
@@ -50,10 +50,10 @@ namespace change_calculator.tests
         }
 
         [Theory]
-        [InlineData("5�0", "50")]
-        [InlineData("�5�0", "50")]
-        [InlineData("50", "�50")]
-        [InlineData("5 0", "�50")]
+        [InlineData("5£0", "50")]
+        [InlineData("£5£0", "50")]
+        [InlineData("50", "£50")]
+        [InlineData("5 0", "£50")]
         public void Test_RemovePoundSymbol_NotEqual(string input, string expected)
         {
             Assert.NotEqual(expected, Program.RemovePoundSymbol(input));
