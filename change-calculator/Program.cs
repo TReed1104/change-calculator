@@ -37,7 +37,7 @@ namespace change_calculator
             return inputConverted;
         }
 
-        private static void OutputChangeDistribution(double[] validChangeValues, int[] changeDistribution)
+        public static string OutputChangeDistribution(double[] validChangeValues, int[] changeDistribution)
         {
             // Output the change distribution to the console
             string changeOutputText = "Your change is:";
@@ -59,7 +59,7 @@ namespace change_calculator
                     changeOutputText += string.Format("\n{0} x {1}p", changeDistribution[i], ConvertToPence(validChangeValues[i]));
                 }
             }
-            Console.WriteLine(changeOutputText + "\n");
+            return changeOutputText + "\n";
         }
 
         public static void CalculateChange(double[] validChangeValues, double inputCost, double inputPayment)
