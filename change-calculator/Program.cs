@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
 namespace change_calculator
 {
-    class Program
+    public class Program
     {
 
         private static int ConvertToPence(double input)
