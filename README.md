@@ -16,6 +16,7 @@ This solution will open in Visual studio, where the code can be compiled and ran
 
 ## Tests
 The project contains multiple Xunit tests found in "change-calculator.tests/ChangeCalculatorTests.cs", these individually test each of the methods used by the program with a variety of inputs.
+
 These tests can be run either from terminal via "dotnet test" from the "change-calculator.tests" folder, or via the Visual studio test runner console.
 
 
