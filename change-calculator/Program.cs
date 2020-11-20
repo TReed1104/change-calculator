@@ -39,6 +39,12 @@ namespace change_calculator
 
         public static string OutputChangeDistribution(double[] validChangeValues, int[] changeDistribution)
         {
+            // Check the change type and distribution arrays are the same length
+            if (validChangeValues.Length != changeDistribution.Length)
+            {
+                return "Invalid Array Length";
+            }
+
             // Output the change distribution to the console
             string changeOutputText = "Your change is:";
             for (int i = 0; i < validChangeValues.Length; i++)
