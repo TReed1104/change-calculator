@@ -83,6 +83,16 @@ namespace change_calculator.tests
         {
             Assert.NotEqual(expected, Program.ParseUserInput(input));
         }
+
+
+        [Theory]
+        [InlineData(20, 5.5, new int[] { 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0 })]
+        [InlineData(50, 10, new int[] { 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 })]
+        [InlineData(20, 10, new int[] { 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 })]
+        public void Test_CalculateChange_Equal(double inputCost, double inputPayment, int[] expected)
+        {
+            Assert.Equal(expected, Program.CalculateChange(Program.validChangeTypes, inputCost, inputPayment));
+        }
     }
 
 }
