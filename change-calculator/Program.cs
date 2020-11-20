@@ -10,7 +10,7 @@ namespace change_calculator
             return (int)(input * 100);
         }
 
-        private static string RemovePoundSymbol(string inputString)
+        public static string RemovePoundSymbol(string inputString)
         {
             // Check if the string contains a £ - catchs inputs with pre-post £ symbols, inputs such as '3£4' will be marked invalid as theyre unclear
             if (inputString.Contains('£'))
