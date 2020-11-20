@@ -4,6 +4,7 @@ namespace change_calculator
 {
     public class Program
     {
+        public static double[] validChangeTypes = new double[] { 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01 };
         // Convert our decimal £ value to an int of its pence value
         public static int ConvertToPence(double input)
         {
@@ -107,8 +108,6 @@ namespace change_calculator
         static void Main(string[] args)
         {
             Console.WriteLine("Programming Task - Change Calculator\n---------------------------------------------");
-            double[] validChangeTypes = new double[] { 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01 };
-
             bool hasUserProvidedValidInputs = false;
             while (!hasUserProvidedValidInputs)
             {
